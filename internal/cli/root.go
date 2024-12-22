@@ -5,7 +5,7 @@ import "github.com/spf13/cobra"
 func NewRootCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "mytool",
-		Short: "my own cli",
+		Short: "my cli tool",
 		Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
 
@@ -17,5 +17,9 @@ to quickly create a Cobra application.`,
 		SilenceErrors:         true,
 		DisableFlagsInUseLine: true,
 	}
+
+	cmd.AddCommand(
+		NewTimeCommand(),
+	)
 	return cmd
 }
